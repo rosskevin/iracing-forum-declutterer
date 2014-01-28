@@ -12,7 +12,6 @@ executeJQuery(function(){
 
     // Give some indication that we have 'decluttered' this list.
     var oldText = $(".lastLink:first").text();
-    $(".lastLink:first").text(oldText + " (decluttered)")
 
     var images_to_remove = [
         "iconAnnouncement.png",
@@ -22,7 +21,17 @@ executeJQuery(function(){
 //        , "iconStickyUnread.png" // leave this showing
     ];
 
-    $.each(images_to_remove, function( index, image_to_remove ) {
-        $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
-    });
+    // don't filter the announcements
+    if(window.location.pathname.indexOf("/605.page") > 0){
+
+        $(".lastLink:first").text(oldText + " (declutterer disabled)")
+    }
+    else {
+
+        // this isn't announcements, filter away.
+        $(".lastLink:first").text(oldText + " (decluttered)")
+        $.each(images_to_remove, function( index, image_to_remove ) {
+            $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
+        });
+    }
 });

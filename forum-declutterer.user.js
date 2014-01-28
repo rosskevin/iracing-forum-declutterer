@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        iRacing forum declutterer
 // @namespace   drinkto.me
-// @description Userscript for iRacing forums that hides (read) stickied and locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and locked still show.
+// @description Userscript for iRacing forums that hides (read) stickied and (read) locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and unread locked still show. The general announcements forum remains unfiltered.
 // @include     http://members.iracing.com/jforum/forums/show/*
-// @version     1
+// @version     2
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
@@ -11,9 +11,8 @@ var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=docum
 
 executeJQuery(function(){
 
-    // Give some indication that this is not the full list on forum home.
+    // Give some indication that we have 'decluttered' this list.
     var oldText = $(".lastLink:first").text();
-    $(".lastLink:first").text(oldText + " (decluttered)")
 
     var images_to_remove = [
         "iconAnnouncement.png",
@@ -23,7 +22,17 @@ executeJQuery(function(){
 //        , "iconStickyUnread.png" // leave this showing
     ];
 
-    $.each(images_to_remove, function( index, image_to_remove ) {
-        $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
-    });
+    // don't filter the announcements
+    if(window.location.pathname.indexOf("/605.page") > 0){
+
+        $(".lastLink:first").text(oldText + " (declutterer disabled)")
+    }
+    else {
+
+        // this isn't announcements, filter away.
+        $(".lastLink:first").text(oldText + " (decluttered)")
+        $.each(images_to_remove, function( index, image_to_remove ) {
+            $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
+        });
+    }
 });
