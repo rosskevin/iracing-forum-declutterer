@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        iRacing forum declutterer
 // @namespace   drinkto.me
-// @description Userscript for iRacing forums that hides (read) stickied and locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied still show.
+// @description Userscript for iRacing forums that hides (read) stickied and locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and locked still show.
 // @include     http://members.iracing.com/jforum/forums/show/*
 // @version     1
 // @grant       none
@@ -19,6 +19,7 @@ executeJQuery(function(){
         "iconAnnouncement.png",
         "iconReadLocked.png",
         "iconStickyRead.png"
+//        , "iconUnreadLocked.png" // leave this showing
 //        , "iconStickyUnread.png" // leave this showing
     ];
 

@@ -18,6 +18,7 @@ executeJQuery(function(){
         "iconAnnouncement.png",
         "iconReadLocked.png",
         "iconStickyRead.png"
+//        , "iconUnreadLocked.png" // leave this showing
 //        , "iconStickyUnread.png" // leave this showing
     ];
 

@@ -1,7 +1,7 @@
 iracing-forum-declutterer
 =================
 
-Userscript for iRacing that declutter's iRacing forum pages from read stickies and locked threads.  Unread stickies still show.
+Userscript for iRacing that declutter's iRacing forum pages from read stickies and locked threads.  Unread stickied and locked still show.
 
 ## Contributing
 
