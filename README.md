@@ -1,7 +1,7 @@
 iracing-forum-declutterer
 =================
 
-Userscript for iRacing forums that hides (read) stickied and (read) locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and unread locked still show. The staff announcements forum remains unfiltered.
+Userscript for iRacing forums that hides (read) stickied and (read) locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and unread locked still show. The staff announcements forum remains unfiltered, and "Setups" and "Tuning" stickies are also left alone.
 
 ## Contributing
 
