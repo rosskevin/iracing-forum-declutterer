@@ -3,7 +3,7 @@
 // @namespace   drinkto.me
 // @description Userscript for iRacing forums that hides (read) stickied and (read) locked threads because they aren't maintained and take up much of the screen. i.e. "iRacing on Linux" in the general discussion.  Unread stickied and unread locked still show. The general announcements forum remains unfiltered.
 // @include     http://members.iracing.com/jforum/forums/show/*
-// @version     2
+// @version     3
 // @grant       none
 // ==/UserScript==
 var load,execute,loadAndExecute,executeJQuery;load=function(a,b,c){var d;d=document.createElement("script"),d.setAttribute("src",a),b!=null&&d.addEventListener("load",b),c!=null&&d.addEventListener("error",c),document.body.appendChild(d);return d},execute=function(a){var b,c;typeof a=="function"?b="("+a+")();":b=a,c=document.createElement("script"),c.textContent=b,document.body.appendChild(c);return c},loadAndExecute=function(a,b){return load(a,function(){return execute(b)})}
