@@ -32,7 +32,15 @@ executeJQuery(function(){
         // this isn't announcements, filter away.
         $(".lastLink:first").text(oldText + " (decluttered)")
         $.each(images_to_remove, function( index, image_to_remove ) {
-            $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
+
+            // original
+//            $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent().toggle();
+
+            // leave threads that have 'uning' || 'etup'.  i.e. this leaves 'Tuning Guide' and 'Setups' threads (not case sensitive)
+            $("td img[src*='/jforum/templates/iracing/images/" + image_to_remove + "']").parent().parent()
+                .filter(function( index ) {
+                    return $( ".tdTopic a:first-child:contains('uning'), .tdTopic a:first-child:contains('etup')", this ).length <= 0;
+                }).remove();
         });
     }
 });
